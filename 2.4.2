@@ -2,6 +2,14 @@
 
 # Solution:
 
+# Note in these examples you can omit the subclass's __init__ method because
+# all it needs is call super().__init__ with the same arguments that were 
+# provided to the subclass's __init__ method which can be provided by 
+# inheritance.
+
+# Note number_of_vehicles is a class variable and all instances of Vehicle
+# has access to it. 
+
 class Vehicle:
     number_of_vehicles = 0
 
@@ -14,8 +22,10 @@ class Vehicle:
 
 class Car(Vehicle):
 
-    def __init__(self):
-        super().__init__()
+#    def __init__(self):
+#        super().__init__()
+
+    pass
 
 class Truck(Vehicle):
 

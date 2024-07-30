@@ -4,6 +4,11 @@
 
 # Solution:
 
+# Note in these examples you can omit the subclass's __init__ method because
+# all it needs is call super().__init__ with the same arguments that were 
+# provided to the subclass's __init__ method which can be provided by 
+# inheritance.
+
 class SignalMixin:
 
     def signal_left(self):
@@ -27,9 +32,10 @@ class Vehicle:
 
 class Car(Vehicle, SignalMixin):
 
-    def __init__(self):
-        super().__init__()
-
+#    def __init__(self):
+#        super().__init__()
+    pass
+    
 class Truck(Vehicle, SignalMixin):
 
     def __init__(self):
