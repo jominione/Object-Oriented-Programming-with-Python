@@ -1,0 +1,22 @@
+# Add a class method to your Car class that calculates and prints any car's
+# average gas mileage (miles per gallon). You can compute the mileage by
+# dividing the distance traveled (in miles) by the fuel burned (in gallons).
+
+# Solution:
+
+class Car:
+
+    def __init__(self, model, year, colour):
+        self._model = model
+        self._year = year
+        self._colour = colour
+        self.speed = 0
+
+    @classmethod
+    def gas_mileage(cls, gallons, miles):
+        mileage = miles / gallons
+        print(f'{mileage} miles per gallon')
+
+# Example:
+
+Car.gas_mileage(13, 351)

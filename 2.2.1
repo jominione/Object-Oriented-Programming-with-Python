@@ -1,0 +1,60 @@
+# Create a Car class that meets these requirements:
+# * Each Car object should have a model, model year, and colour provided
+#   at instantiation time.
+
+# * You should have an instance variable that keeps track of the current
+#   speed. Initialise it to 0 when you instantiate a new car.
+
+# * Create instance methods that let you turn the engine on, accelerate,
+#   brake, and turn the engines off. Each method should display an appropriate
+#   message.
+
+# * Create a method that prints a message about the car's current speed.
+
+# * Write some code to test the methods.
+
+# Solution:
+
+class Car:
+
+    def __init__(self, model, year, colour):
+        self.model = model
+        self.year = year
+        self.colour = colour
+        self.speed = 0
+    
+    def engine_on(self):
+
+        print("Engine is turned on!")
+
+    def accelerate(self, number):
+
+        self.speed += number
+        print(f"Speeding up {number} kmph!")
+
+    def brake(self, number):
+
+        self.speed -= number
+        print(f"Slowing down {number} kmph!")
+
+
+    def engine_off(self):
+        self.speed = 0
+        print("Engine is turned off!")
+
+
+    def get_speed(self):
+
+        print(f'Current speed is {self.speed} kmph.')
+
+# Example:
+
+ferrari = Car('Ferrari', 2024, 'Red')
+ferrari.engine_on()
+ferrari.get_speed()
+ferrari.accelerate(10)
+ferrari.get_speed()
+ferrari.brake(2)
+ferrari.get_speed()
+ferrari.engine_off()
+ferrari.get_speed()

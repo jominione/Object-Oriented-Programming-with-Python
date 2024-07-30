@@ -1,0 +1,80 @@
+# Challenge: Create the classes needed to make the following code work as
+# shown.
+
+# Solution:
+
+class Candidate:
+
+    def __init__(self, name):
+        self.name = name
+        self.votes = 0
+
+    def __iadd__(self, other):
+        self.votes += other
+        return self
+
+class Election:
+
+    def __init__(self, candidates):
+        self.candidates = candidates
+
+    def results(self):
+        total_votes = 0
+        dictionary = {}
+        for candidate in self.candidates:
+            print(f'{candidate.name}: {candidate.votes} votes')
+            total_votes += candidate.votes
+            dictionary.update({candidate.name: candidate.votes})
+
+        winner = self.order_by_value(dictionary)[-1]
+        winner_votes = dictionary[winner]
+        print()
+        return f'{winner} won: {((winner_votes / total_votes) * 100):.1f}%' +\
+               f' of votes'
+
+    def order_by_value(self, dictionary):
+        dict_keys = list(dictionary.keys())
+        dict_values = list(dictionary.values())
+        values_to_keys = dict(zip(dict_values, dict_keys))
+        dict_values.sort()
+        result = []
+        for key in dict_values:
+            result.append(values_to_keys[key])
+        return result
+
+# Examples:
+
+mike_jones = Candidate('Mike Jones')
+susan_dore = Candidate('Susan Dore')
+kim_waters = Candidate('Kim Waters')
+
+candidates = {
+    mike_jones,
+    susan_dore,
+    kim_waters,
+}
+
+votes = [
+    mike_jones,
+    susan_dore,
+    mike_jones,
+    susan_dore,
+    susan_dore,
+    kim_waters,
+    susan_dore,
+    mike_jones,
+]
+
+for candidate in votes:
+    candidate += 1
+
+election = Election(candidates)
+print(election.results())
+
+# Output:
+
+# Mike Jones: 3 votes
+# Susan Dore: 4 votes
+# Kim Waters: 1 votes
+
+# Susan Dore won: 50.0% of votes

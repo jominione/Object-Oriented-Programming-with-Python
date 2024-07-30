@@ -1,0 +1,25 @@
+# Going back to your solution to exercise 1, refactor the code to replace
+# any methods that can be converted to static methods. Once you have done
+# that, ask yourself whether the conversion to a static method makes sense.
+
+# Solution:
+
+class Car:
+
+    @staticmethod
+    def engine_start():
+        print('The engine is on!')
+
+lumina = Car('chevy lumina', 1997, 'white')
+Car.engine_start() # The engine is on!
+
+# Changing lumina.engine_start() to Car.engine_start() wasn't entirely 
+# necessary; the code would work either way.
+
+# Changing engine_start to a static method in this class is probably not 
+# a great idea. While the method doesn't need self or cls, a real engine_start 
+# method would almost certainly need access to the attributes of the Car 
+# instance; turning an engine on takes more than just saying it is on.
+
+# Note that you might also try converting gas_mileage from question 4 to a 
+# static method. However, we've asked you to update the solution to question 1.

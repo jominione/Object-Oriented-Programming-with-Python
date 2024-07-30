@@ -1,0 +1,45 @@
+# Using decorators, add getter and setter methods to your Car class so you
+# can view and change the colour of your car. You should also add getter
+# methods that let you view but not modify the car's model and year. Don't
+# forget to write some tests.
+
+# Solution:
+
+class Car:
+
+    def __init__(self, model, year, colour):
+        self._model = model
+        self._year = year
+        # Because colour has a setter decorator does not need to be defined 
+        # starting with _.
+        self.colour = colour     
+        self.speed = 0
+
+    # Omitted code
+
+    @property
+    def colour(self):
+        return self._colour
+
+    @colour.setter
+    def colour(self, colour):
+        self._colour = colour
+
+    @property
+    def model(self):
+        return self._model
+
+    @property
+    def year(self):
+        return self._year
+
+# Examples:
+
+ferrari = Car('Ferrari', 2024, 'Red')
+print(ferrari.model)
+print(ferrari.year)
+print(ferrari.colour)
+
+ferrari.colour = 'Blue'
+
+print(ferrari.colour)

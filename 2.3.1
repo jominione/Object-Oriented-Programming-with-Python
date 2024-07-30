@@ -1,0 +1,26 @@
+# Create a Car class that makes the following code work as indicated.
+
+# Solution:
+
+class Car:
+
+    def __init__(self, model, year, colour):
+        self.model = model
+        self.year = year
+        self.colour = colour
+    
+    def __str__(self):
+        return f'{self.colour.title()} {self.year} {self.model}'        
+
+    def __repr__(self):
+        colour = repr(self.colour)
+        year = repr(self.year)
+        model = repr(self.model)
+        return f'Car({model}, {year}, {colour})'
+
+
+# Examples:
+
+vwbuzz = Car('ID.Buzz', 2024, 'red')
+print(vwbuzz)        # Red 2024 ID.Buzz
+print(repr(vwbuzz))  # Car('ID.Buzz', 2024, 'red')

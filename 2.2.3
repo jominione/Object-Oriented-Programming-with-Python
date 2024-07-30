@@ -1,0 +1,23 @@
+# Add a method to the Car class that lets you spray paint the car a specific
+# colour. Don't use a setter method for this. Instead, create a method whose
+# name accurately describes what it does. Don't forget to test your code.
+
+# Solution:
+
+class Car:
+
+    def __init__(self, model, year, colour):
+        self._model = model
+        self._year = year
+        self.colour = colour
+        self.speed = 0
+
+    def spray_paint(self, colour):
+        self.colour = colour
+        print(f"Your {colour} paint job looks great!")
+
+# Examples:
+
+ferrari = Car('Ferrari', 2024, 'Red')
+
+ferrari.spray_paint('blue')
